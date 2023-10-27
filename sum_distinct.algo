@@ -1,0 +1,40 @@
+ALGORITHM sum_of_distinct
+VAR
+    //Declaring the first and second array variables
+    first_element : ARRAY_OF INTEGER[10];
+    second_element : ARRAY_OF INTEGER[10];
+
+    //Declaring the variable for sum
+    sum: INTEGER:=0;
+BEGIN
+    
+    //Initialising the first array from user
+    first_element = [5,7,9,6,3];
+    second_element = [5,2,1,10];
+
+     //Iterating through first array elements and comparing with second array elements
+    FOR i FROM 0 TO first_element.length STEP 1  DO
+        FOR j FROM 0 TO second_element.length STEP 1  DO
+            IF (first_element[i] = second_element[j]) THEN
+                BREAK;
+            END_IF
+        END_FOR
+        IF (first_element[i] <> second_element[j]) THEN
+            sum += first_element[i];
+        END_IF
+    END_FOR
+
+    FOR j FROM 0 TO second_element.length STEP 1  DO
+        FOR i FROM 0 TO first_element.length STEP 1  DO
+            IF (second_element[j] = first_element[i]) THEN
+                BREAK;
+            END_IF
+        END_FOR
+        IF (second_element[j] <> first_element[i]) THEN
+            sum += second_element[j];
+        END_IF
+    END_FOR
+
+    RETURN sum;
+    
+END

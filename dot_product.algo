@@ -1,0 +1,31 @@
+
+ALGORITHM dot_product
+VAR
+    v1: ARRAY_OF INTEGER[5];
+    v2: ARRAY_OF INTEGER[5];
+    i, j, ps_value:INTEGER;
+BEGIN
+    Read(v1)
+    Read(v2)
+
+    ps_value = product_of_vectors(v1, v2);
+END
+
+//Creating a function called dot.product
+
+
+FUNCTION product_of_vectors(v1, v2) : INTEGER
+VAR
+    i, ps:INTEGER = 0;
+BEGIN
+//Check the length of the two parameter arrays
+    IF (v1.length <> v2.length) THEN
+        Write("Please provide vectors of equal length")
+    END_IF
+
+//Find the total sum of all the vectors
+FOR i FROM 0 TO v1.length - 1 STEP step  DO
+    ps = ps + (v1[i] * v2[i]);
+END_FOR
+    RETURN ps;
+END
